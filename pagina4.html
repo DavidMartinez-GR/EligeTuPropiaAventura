@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominio de Thalmar</title>
+    <link href="estilos.css" rel="stylesheet">
+    <link rel="icon" href="imagenes/planeta.ico" type="image/x-icon">
+    <script type="text/javascript">
+        function solucion(){
+            var adivinanza=document.getElementById('cajaAdivinanzaThalmar').value.toLowerCase();
+            var notificacionThalmar=document.getElementById('aciertoThalmar');
+            document.getElementById('aciertoThalmar').style.display='none';
+            var error='';
+            if (adivinanza == 'humanidad'){
+                document.getElementById('aciertoThalmar').style.display='block';
+            } else {
+                error='<strong>Sigue intentandolo pequeño Padawan</strong>';
+            }
+            document.getElementById('contenedorError').style.display='block';
+            document.getElementById('contenedorError').innerHTML=error;
+        }
+        function solucion1(){
+            document.getElementById('contenedorAdivinanzaThalmar').style.display='block';
+            document.getElementById('errorCorona').style.display='none';
+            document.getElementById('errorCetro').style.display='none';
+        }
+        function solucion2(){
+            document.getElementById('errorCorona').style.display='block';
+            document.getElementById('errorCetro').style.display='none';
+            document.getElementById('contenedorAdivinanzaThalmar').style.display='none';
+
+        }
+        function solucion3(){
+            document.getElementById('errorCetro').style.display='block';
+            document.getElementById('errorCorona').style.display='none';
+            document.getElementById('contenedorAdivinanzaThalmar').style.display='none';
+        }
+    </script>
+</head>
+<body>
+    <div class="contenedorDescripcion">
+        <h2>Dominio de Thalmar</h2>
+        <img src="imagenes/thalmar.png">
+        <p>En el vasto y enigmático mundo de Numinar, el Dominio de Thalmar se erige como una tierra de imponentes fortalezas y avanzados laboratorios de tecnología mágica. 
+            Esta región es un testimonio del ingenio humano y la potencia de la magia antigua, fusionando ambas en un ballet de metal y cristal.
+        </p>
+        <p>A tu llegada a Thalmar, te recibe un viejo conocido el Comandante Valeran Dúrathar.
+            Este tiene ordenado llevarte ante el rey de Thalmar, Rey Alden Braelith, el cual desconfía de tus propósitos en Thalmar.
+            Para salir impune, te hace una pregunta con una sola respuesta, la cual deberás meditar, tu vida depende de ella.
+            <b>"En el Dominio de Thalmar, ¿qué artefacto es considerado el símbolo de nuestra unión entre magia y tecnología, forjado durante la Gran Ruptura?"</b>
+        </p>
+        <input type="button" value="Orbe de Mithril" onclick="solucion1();">
+        <input type="button" value="Corona de Cristal" onclick="solucion2();">
+        <input type="button" value="Cetro de fuego y hielo" onclick="solucion3();">
+        <div id="contenedorAdivinanzaThalmar" class="contenedorThalmar" style="display: none;">
+            <h2>¡¡Correcto es el Orbe de Mithril!!</h2>
+            <img src="imagenes/orbe.png">
+            <p>El Orbe de Mithril es, de hecho, el símbolo de la unión entre la magia y la tecnología en el Dominio de Thalmar.
+                Al elegir correctamente el artefacto, el rey queda satisfecho y te ganas su confianza. 
+                Pero por último, te formula una adivinanza que condicionará tu aventura. 
+                <b>"Creemos en lo invisible, luchamos por lo intangible. Construimos mundos de sueños y a veces, olvidamos lo real. ¿Qué somos?"</b>
+            </p>
+            <input type="text" id="cajaAdivinanzaThalmar" value="Escribe la respuesta">
+            <input type="button" value="Resuelve" onclick="solucion();">
+        </div>
+        <div id="contenedorError" style="display: none;"></div>
+        <div id="errorCorona" class="contenedorThalmar" style="display: none;">
+            <h3>La Corona de Cristal es un artefacto cedido por la Ciudadela de cristal, por lo que resultas sospechoso...</h3>
+        </div>
+        <div id="errorCetro" class="contenedorThalmar" style="display: none;">
+            <h3>Ese item su origen tiene lugar en Llamas del norte, ¿no vendrás de parte de ellos no?</h3>
+        </div>
+        <div id="aciertoThalmar" class="contenedorThalmar" style="display: none;">
+            <h2>Lo conseguista, puedes seguir adelante tu aventura.</h2>
+            <img src="imagenes/thalmar2.png">
+            <h2>Elige tu siguiente aventura</h2>
+            <img src="imagenes/bosque.png" usemap="#bosque">
+            <map name="bosque">
+                <area target="_parent" alt="bosque" title="Bosque de sombras eternas" href="pagina2.html" coords="3,2,400,397" shape="rect">
+            </map>
+            <img src="imagenes/cristal.png" usemap="#cristal">
+            <map name="cristal">
+                <area target="_parent" alt="cristal" title="Ciudadela de cristal" href="pagina3.html" coords="2,3,399,399" shape="rect">
+            </map>
+            <img src="imagenes/llamas.png" usemap="#llamas">
+            <map name="llamas">
+                <area target="_parent" alt="llamas" title="Llamas del norte" href="pagina1.html" coords="2,1,400,398" shape="rect">
+            </map>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llamas del norte</title>
+    <link href="estilos.css" rel="stylesheet">
+    <link rel="icon" href="imagenes/planeta.ico" type="image/x-icon">
+    <script type="text/javascript">
+        function solucion(){
+        var adivinanza=document.getElementById('cajaAdivinanzaLlamas').value.toLowerCase();
+        var notificacionLlamas=document.getElementById('contenedorAdivinanzaLlamas');
+        document.getElementById('contenedorAdivinanzaLlamas').style.display='none';
+        var error='';
+        if (adivinanza == 'fuego'){
+            document.getElementById('contenedorAdivinanzaLlamas').style.display='block';
+        } else {
+            error='<strong>Sigue intentandolo pequeño Padawan</strong>';
+        }
+        document.getElementById('contenedorError').style.display='block';
+        document.getElementById('contenedorError').innerHTML=error;
+        }
+        function escudo(){
+            document.getElementById('errorEscudo').style.display='block';
+            document.getElementById('errorMochila').style.display='none';
+            document.getElementById('aciertoPocion').style.display='none';
+        }
+        function mochila(){
+            document.getElementById('errorMochila').style.display='block';
+            document.getElementById('errorEscudo').style.display='none';
+            document.getElementById('aciertoPocion').style.display='none';
+
+        }
+        function pocion(){
+            document.getElementById('errorMochila').style.display='none';
+            document.getElementById('errorEscudo').style.display='none';
+            document.getElementById('aciertoPocion').style.display='block';
+        }
+    </script>
+</head>
+<body>
+    <div class="contenedorDescripcion">
+        <h2>Llamas del norte</h2>
+        <img src="imagenes/llamas.png">
+        <p>En el extremo septentrional de Numinar, donde el cielo se ilumina con destellos de lava y la tierra tiembla bajo el poder de los volcanes, se encuentra Las Llamas del Norte. 
+            Este archipiélago volcánico es un lugar de imponente belleza y peligros constantes, hogar de tribus nómadas que veneran a los espíritus del fuego y custodian antiguos secretos.
+        </p>
+        <p>Para poder seguir adelante en esta aventura, una adivinanza deberás superar.
+            <b>"Sin alas, vuelo; sin ojos, veo; sin boca, rujo; y sin manos, devoro. ¿Qué soy?"</b>
+        </p>
+        <input type="text" id="cajaAdivinanzaLlamas" value="Escribe la respuesta">
+        <input type="button" value="Resuelve" onclick="solucion();">
+        <div id="contenedorError" style="display: none;"></div>
+        <div id="contenedorAdivinanzaLlamas" class="contenedorLlamas" style="display: none;">
+            <h2>¡¡Bien hecho aventurero!!</h2>
+            <p>Has pasado a la siguiente aventura en Llamas del norte. Te encuentras ante un mar de llamas y lava, y estos te cortan el paso.
+                Para poder pasar se te facilitan 3 items, solo 1 sirve para pasar a la siguiente región.
+            </p>
+            <img src="imagenes/escudo.jpg" usemap="#escudo">
+            <map name="escudo">
+                <area onclick="escudo();" target="_parent" alt="escudo" title="escudo" href="#errorEscudo" coords="21,1,9,3,3,6,0,10,0,36,18,82,46,99,71,82,87,43,86,8,68,0,43,0" shape="poly">
+            </map>
+            <img src="imagenes/mochila.png" usemap="#mochila">
+            <map name="mochila">
+                <area onclick="mochila();" target="_parent" alt="mochila" title="mochila" href="#errorMochila" coords="27,1,21,8,18,18,15,29,15,47,16,60,3,69,9,74,17,77,28,81,42,83,57,86,70,86,89,85,97,62,96,23,82,5,54,8" shape="poly">
+            </map>
+            <img src="imagenes/pocion.png" usemap="#pocion">
+            <map name="pocion">
+                <area onclick="pocion();" target="_parent" alt="pocion" title="pocion" href="#aciertoPocion" coords="18,1,12,9,18,22,19,48,12,50,7,54,1,61,0,86,8,92,15,99,49,98,56,92,61,86,62,62,54,55,48,49,43,14,50,11,48,5,43,0" shape="poly">
+            </map>
+        </div>
+        <div id="errorEscudo" class="contenedorLlamas" style="display: none;">
+            <h3>En serio eliges un escudo... ¡Sigue intentandolo!</h3>
+        </div>
+        <div id="errorMochila" class="contenedorLlamas" style="display: none;">
+            <h3>Ni que fueras Dora la exploradora... ¡Sigue intentandolo!</h3>
+        </div>
+        <div id="aciertoPocion" class="contenedorLlamas" style="display: none;">
+            <h2>Lo conseguista, pasaste la última prueba.</h2>
+            <img src="imagenes/llamas2.png">
+            <h2>Elige tu siguiente aventura</h2>
+            <img src="imagenes/bosque.png" usemap="#bosque">
+            <map name="bosque">
+                <area target="_parent" alt="bosque" title="Bosque de sombras eternas" href="pagina2.html" coords="3,2,400,397" shape="rect">
+            </map>
+            <img src="imagenes/cristal.png" usemap="#cristal">
+            <map name="cristal">
+                <area target="_parent" alt="cristal" title="Ciudadela de cristal" href="pagina3.html" coords="2,3,399,399" shape="rect">
+            </map>
+            <img src="imagenes/thalmar.png" usemap="#thalmar">
+            <map name="thalmar">
+                <area target="_parent" alt="thalmar" title="Dominio de Thalmar" href="pagina4.html" coords="2,1,400,398" shape="rect">
+            </map>
+        </div>
+    </div>
+</body>
+</html>

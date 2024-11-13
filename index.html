@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New adventure</title>
+    <link href="estilos.css" rel="stylesheet">
+    <link rel="icon" href="imagenes/planeta.ico" type="image/x-icon">
+    <script type="text/javascript">
+         function cambioMapa1(){
+            document.getElementById('mapa').src='imagenes/zona1.png';
+        }
+        function vuelveMapa1(){
+            document.getElementById('mapa').src='imagenes/planeta.png';
+        }
+        function cambioMapa2(){
+            document.getElementById('mapa').src='imagenes/zona3.png';
+        }
+        function vuelveMapa2(){
+            document.getElementById('mapa').src='imagenes/planeta.png';
+        }
+        function cambioMapa3(){
+            document.getElementById('mapa').src='imagenes/zona4.png';
+        }
+        function vuelveMapa3(){
+            document.getElementById('mapa').src='imagenes/planeta.png';
+        }
+        function cambioMapa4(){
+            document.getElementById('mapa').src='imagenes/zona2.png';
+        }
+        function vuelveMapa4(){
+            document.getElementById('mapa').src='imagenes/planeta.png';
+        }        
+    </script>
+</head>
+<body>
+    <div class="titulo"><h1>Las Tierras de Numinar</h1></div>
+    <a name="inicio"></a>
+    <div id="descripcion_inicio" class="contenedorDescripcion">
+        <h2>Bienvenidos a Numinar</h2>
+        <p>
+            Un vasto mundo suspendido en el cielo donde la magia ancestral se fusiona con la tecnología avanzada. 
+            Hace mil años, La Ruptura fragmentó el cosmos, aislando a Numinar en un mar de nubes. 
+            Ahora, sus habitantes se aventuran entre islas flotantes, conectadas por rutas aéreas y portales mágicos.
+        </p>
+        <h2>Misiones y aventuras</h2>
+        <ul>
+            <li>Explora las fortalezas de Thalmar y descubre sus secretos tecnológicos.</li>
+            <li>Atraviesa el oscuro Bosque de Sombras Eternas y enfréntate a su magia ancestral.</li>
+            <li>Sobrevive en el ardiente archipiélago de Las Llamas del Norte y domestica a los dragones dormidos.</li>
+            <li>Busca la verdad en la Ciudadela de Cristal y ayuda a los Sabios del Cosmos a restaurar el equilibrio.</li>
+        </ul>
+        <h2>¡Prepara tu equipo, afila tu espada y embárcate en la aventura de tu vida en Numinar. El destino del cosmos está en tus manos!</h2>
+    <h2>Selecciona una región para comenzar con la aventura</h2>
+    <img id="mapa" src="imagenes/planeta.png" usemap="#mapa">
+
+    <map name="mapa">
+        <area onmouseover="cambioMapa1()" onmouseout="vuelveMapa1()" onclick="zona1();" target="_parent" alt="llamas" title="llamas" href="pagina1.html" coords="0,225,16,236,28,243,50,237,67,223,47,208,52,201,37,193,28,188,16,192,1,192" shape="poly">
+        <area onmouseover="cambioMapa2()" onmouseout="vuelveMapa2()" onclick="zona2();" target="_parent" alt="bosque" title="bosque" href="pagina2.html" coords="239,250,240,238,267,240,312,250,318,258,301,272,290,273,277,271,276,273,244,279,223,274,200,271,191,262,200,250,221,243,233,246,236,247" shape="poly">
+        <area onmouseover="cambioMapa3()" onmouseout="vuelveMapa3()" onclick="zona3();" target="_parent" alt="cristal" title="cristal" href="pagina3.html" coords="201,98,188,117,176,109,173,126,164,123,162,139,185,160,212,167,224,143,233,139" shape="poly">
+        <area onmouseover="cambioMapa4()" onmouseout="vuelveMapa4()" onclick="zona4();" target="_parent" alt="thalmar" title="thalmar" href="pagina4.html" coords="161,324,179,312,200,305,218,319,233,331,222,349,209,352,195,352,173,344,163,340" shape="poly">
+    </map>
+        
+    </div>
+</body>
+</html>

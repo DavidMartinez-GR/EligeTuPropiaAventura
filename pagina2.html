@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosque de sombras eternas</title>
+    <link href="estilos.css" rel="stylesheet">
+    <link rel="icon" href="imagenes/planeta.ico" type="image/x-icon">
+    <script type="text/javascript">
+        function solucion(){
+        var adivinanza=document.getElementById('cajaAdivinanzaBosque').value.toLowerCase();
+        var notificacionBosque=document.getElementById('contenedorAdivinanzaBosque');
+        document.getElementById('contenedorAdivinanzaBosque').style.display='none';
+        var error='';
+        if (adivinanza == 'brujula'){
+            document.getElementById('contenedorAdivinanzaBosque').style.display='block';
+        } else {
+            error='<strong>Sigue intentandolo pequeño Padawan</strong>';
+        }
+        document.getElementById('contenedorError').style.display='block';
+        document.getElementById('contenedorError').innerHTML=error;
+        }
+        function piedra(){
+            document.getElementById('errorPiedra').style.display='block';
+            document.getElementById('errorArbol').style.display='none';
+            document.getElementById('aciertoSeta').style.display='none';
+        }
+        function arbol(){
+            document.getElementById('errorArbol').style.display='block';
+            document.getElementById('errorPiedra').style.display='none';
+            document.getElementById('aciertoSeta').style.display='none';
+
+        }
+        function seta(){
+            document.getElementById('errorArbol').style.display='none';
+            document.getElementById('errorPiedra').style.display='none';
+            document.getElementById('aciertoSeta').style.display='block';
+        }
+    </script>
+</head>
+<body>
+    <div class="contenedorDescripcion">
+        <h2>Bosque de sombras eternas</h2>
+        <img src="imagenes/bosque.png">
+        <p>El Bosque de Sombras Eternas es una región envuelta en misterio y magia ancestral. 
+            Esta isla cubierta por una selva impenetrable se encuentra en una constante penumbra debido a su espeso dosel de árboles gigantescos, cuyas ramas entrelazadas bloquean la mayor parte de la luz solar. 
+            La densa niebla que envuelve el bosque añade un aire de enigma, haciendo que incluso los exploradores más valientes se pierdan fácilmente.
+        </p>
+        <p>Para poder avanzar sin problemas en este lugar tan enigmático, necesitarás algo que lo obtendrás mediante un acertijo: 
+            <b>"Siempre apunta hacia el norte, pero no viaja. Siempre está en el camino, pero nunca se mueve. ¿Qué soy?"</b>
+        </p>
+        <input type="text" id="cajaAdivinanzaBosque" value="Escribe la respuesta">
+        <input type="button" value="Resuelve" onclick="solucion();">
+        <div id="contenedorError" style="display: none;"></div>
+        <div id="contenedorAdivinanzaBosque" class="contenedorBosque" style="display: none;">
+            <h2>¡¡Bien hecho aventurero!!</h2>
+            <p>Has conseguido salir de ese bosque laberíntico por fin, pero te das cuenta que has sido envenenado y necesitas una cura.
+                Te encuentras con un erudito que te da una receta para el antídoto, pero necesitas algo en concreto y asi seguir tu aventura.
+            </p>
+            <img src="imagenes/bosque2.png"><br>
+            <input type="button" value="Arbol" onclick="arbol();">
+            <input type="button" value="Piedra" onclick="piedra();">
+            <input type="button" value="Seta azul" onclick="seta();">
+        </div>
+        <div id="errorPiedra" class="contenedorBosque" style="display: none;">
+            <h3>Eso no es una piedra, es un Geodude...sigue intentandolo!</h3>
+        </div>
+        <div id="errorArbol" class="contenedorBosque" style="display: none;">
+            <h3>Nada de abrazar arboles, sigue intentandolo!</h3>
+        </div>
+        <div id="aciertoSeta" class="contenedorBosque" style="display: none;">
+            <h2>¡Eso era lo necesario para poder hacer la cura!</h2>
+            <img src="imagenes/cura.png">
+            <h2>Elige tu siguiente aventura</h2>
+            <img src="imagenes/llamas.png" usemap="#llamas">
+            <map name="llamas">
+                <area target="_parent" alt="llamas" title="Llamas del norte" href="pagina1.html" coords="3,2,400,397" shape="rect">
+            </map>
+            <img src="imagenes/cristal.png" usemap="#cristal">
+            <map name="cristal">
+                <area target="_parent" alt="cristal" title="Ciudadela de cristal" href="pagina3.html" coords="2,3,399,399" shape="rect">
+            </map>
+            <img src="imagenes/thalmar.png" usemap="#thalmar">
+            <map name="thalmar">
+                <area target="_parent" alt="thalmar" title="Dominio de Thalmar" href="pagina4.html" coords="2,1,400,398" shape="rect">
+            </map>
+        </div>
+    </div>
+</body>
+</html>

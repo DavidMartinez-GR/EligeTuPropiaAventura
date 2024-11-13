@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciudadela de cristal</title>
+    <link href="estilos.css" rel="stylesheet">
+    <link rel="icon" href="imagenes/planeta.ico" type="image/x-icon">
+    <script type="text/javascript">
+        function solucion(){
+        var adivinanza=document.getElementById('cajaAdivinanzaCristal').value.toLowerCase();
+        var notificacionCristal=document.getElementById('contenedorAdivinanzaCristal');
+        document.getElementById('contenedorAdivinanzaCristal').style.display='none';
+        var error='';
+        if (adivinanza == 'magia'){
+            document.getElementById('contenedorAdivinanzaCristal').style.display='block';
+        } else {
+            error='<strong>Sigue intentandolo pequeño Padawan</strong>';
+        }
+        document.getElementById('contenedorError').style.display='block';
+        document.getElementById('contenedorError').innerHTML=error;
+        }
+        function cambioMapa1(){
+            document.getElementById('mapa').src='imagenes/laboratorio3.png';
+        }
+        function vuelveMapa1(){
+            document.getElementById('mapa').src='imagenes/laboratorio.png';
+        }
+        function cambioMapa2(){
+            document.getElementById('mapa').src='imagenes/laboratorio1.png';
+        }
+        function vuelveMapa2(){
+            document.getElementById('mapa').src='imagenes/laboratorio.png';
+        }
+        function cambioMapa3(){
+            document.getElementById('mapa').src='imagenes/laboratorio2.png';
+        }
+        function vuelveMapa3(){
+            document.getElementById('mapa').src='imagenes/laboratorio.png';
+        }
+        function zona1(){
+            document.getElementById('aciertoLibro').style.display='block';
+            document.getElementById('errorCollar').style.display='none';
+            document.getElementById('errorPocion').style.display='none';
+        }
+        function zona2(){
+            document.getElementById('errorPocion').style.display='block';
+            document.getElementById('errorCollar').style.display='none';
+            document.getElementById('aciertoLibro').style.display='none';
+        }
+        function zona3(){
+            document.getElementById('errorCollar').style.display='block';
+            document.getElementById('errorPocion').style.display='none';
+            document.getElementById('aciertoLibro').style.display='none';
+        }
+    </script>
+</head>
+<body>
+    <div class="contenedorDescripcion">
+        <h2>Ciudadela de cristal</h2>
+        <img src="imagenes/cristal.png">
+        <p>La Ciudadela de Cristal es una maravilla arquitectónica ubicada en una isla aislada y rodeada de tormentas perpetuas. 
+            Este majestuoso bastión resplandece bajo cualquier condición, ya que sus estructuras de cristal y piedra encantada reflejan la luz de manera hipnotizante, incluso durante las más oscuras tempestades.
+        </p>
+        <p>Para poder a entrar en esta región debes activar un portal mágico, el cual solo se activa mediante una palabra secreta.
+            Para ello leeremos unos textos antiguos que están grabados en dicho portal:
+            <b>"Existe en cada rincón sin forma ni color, guía al valiente y al sabio por igual. No se ve ni se toca, pero transforma lo que es, un susurro en la oscuridad que todo puede cambiar."</b>
+        </p>
+        <input type="text" id="cajaAdivinanzaCristal" value="Escribe la respuesta">
+        <input type="button" value="Resuelve" onclick="solucion();">
+        <div id="contenedorError" style="display: none;"></div>
+        <div id="contenedorAdivinanzaCristal" class="contenedorCristal" style="display: none;">
+            <h2>¡¡Has activado el portal!!</h2>
+            <img src="imagenes/cristal2.png">
+            <p>Has llegado a la ciudadela de cristal, vas al encuentro con un sabio que te facilitará el avanzar en tu aventura.
+                Para ello entras a un laboratorio mágico y debes coger un artefacto que te ayude a recordar el pasado, para encontrar el camino correcto.
+            </p>
+            <img src="imagenes/laboratorio.png" usemap="#laboratorio">
+            <map name="laboratorio">
+                <area onmouseover="cambioMapa1()" onmouseout="vuelveMapa1()" onclick="zona1();" target="_parent" alt="libro" title="libro" href="#aciertoLibro" coords="199,348,211,341,223,337,234,338,242,342,254,337,265,338,279,342,296,371,250,375,202,374" shape="poly">
+                <area onmouseover="cambioMapa2()" onmouseout="vuelveMapa2()" onclick="zona2();" target="_parent" alt="pocion" title="pocion" href="#errorPocion" coords="199,125,198,150,180,171,182,190,197,203,218,204,230,195,241,177,223,154,217,127,217,129" shape="poly">
+                <area onmouseover="cambioMapa3()" onmouseout="vuelveMapa3()" onclick="zona3();" target="_parent" alt="collar" title="collar" href="#errorCollar" coords="133,102,19" shape="circle">
+            </map>
+        </div>
+        <div id="errorPocion" class="contenedorCristal" style="display: none;">
+            <h3>Ahora mismo no es necesaria una poción, sigamos buscando.</h3>
+        </div>
+        <div id="errorCollar" class="contenedorCristal" style="display: none;">
+            <h3>Este collar mágico no nos hará recordar el pasado, sigamos buscando.</h3>
+        </div>
+        <div id="aciertoLibro" class="contenedorCristal" style="display: none;">
+            <h2>Este libro mágico contiene todo el pasado, ¡Eureka!</h2>
+            <img src="imagenes/libro.png">
+            <h2>Elige tu siguiente aventura</h2>
+            <img src="imagenes/llamas.png" usemap="#llamas">
+            <map name="llamas">
+                <area target="_parent" alt="llamas" title="Llamas del norte" href="pagina1.html" coords="3,2,400,397" shape="rect">
+            </map>
+            <img src="imagenes/bosque.png" usemap="#bosque">
+            <map name="bosque">
+                <area target="_parent" alt="bosque" title="Bosque de sombras eternas" href="pagina2.html" coords="2,3,399,399" shape="rect">
+            </map>
+            <img src="imagenes/thalmar.png" usemap="#thalmar">
+            <map name="thalmar">
+                <area target="_parent" alt="thalmar" title="Dominio de Thalmar" href="pagina4.html" coords="2,1,400,398" shape="rect">
+            </map>
+        </div>
+    </div>
+</body>
+</html>
